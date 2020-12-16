@@ -4,7 +4,7 @@ $(function () {
 	$("body").append('<div id="loader" class="loader"><div class="spinner-grow"></div></div><div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog centered"><div class="modal-content-main"></div></div></div><div class="scrolltop"><i data-feather="chevrons-up"></i></div>'); // Add basic modal and loader to document
 	feather.replace();
 	$("#mobile-logo").replaceWith($(".navbar-brand").html()); // Add mobile menu from main menu
-    	if (typeof validate !== 'undefined') validate.init();
+    if (typeof validate !== 'undefined') validate.init();
 	if (typeof $().tooltip === 'function') $('body').tooltip({selector: '[title]'}); // Add tooltip listner
 	$('.navbar-brand .pq-logo').on('click', (e) => {
 		e.preventDefault(); e.stopPropagation();
