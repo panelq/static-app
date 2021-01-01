@@ -9,7 +9,9 @@ $("#category").on("change", () => {
 		placeholder: 'Select Service'
 	}).val($('#service option')[1].value).trigger('change');
 });
+
 $("#service").on("change", () => resetFields($('#service').select2('data')[0]));
+
 $(".verify").on('click', () => {
     let link = $('[name="link"]').val();
     if (link == "" || !isUrl(link)) { toast("danger", msg.invalidField); return; }
@@ -85,10 +87,13 @@ function resetFields($this) {
     $('[name="verified"]').val(1);
     $("#order_total").text("0.00");
     if (fill && $this.type == "custom_comments") {
-        $("#comments").show().attr("required", true);
-        $("#min_max").attr("readonly", true);
+		$("#comments").show().attr("required", true);
+		$("#min_max").attr("readonly", true);
+	} else if (fill && $this.type == "poll") {
+		$("#answer").show().attr("required", true);
+		$("#min_max").attr("readonly", false);
     } else {
-        $("#comments").hide().attr("required", false);
+        $(".customs").hide().attr("required", false);
         $("#min_max").attr("readonly", false);
     }
 }
