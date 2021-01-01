@@ -82,7 +82,7 @@ function resetFields($this) {
     $("#min").text(fill ? $this.min : "");
     $("#max").text(fill ? $this.max : "");
     $("#min_max").attr("min", fill ? $this.min : "");
-    $("#min_max").val(fill ? $this.min : "");
+    $("#min_max").val(fill ? $this.min : 0).trigger('change');
     $("#min_max").attr("max", fill ? $this.max : "");	
     $('[name="verified"]').val(1);
     $("#order_total").text("0.00");
