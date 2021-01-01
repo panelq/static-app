@@ -183,14 +183,12 @@ $(document).on('click', '#ajaxForm', function (event) {
     event.preventDefault();
     $($(this).data('form')).trigger('submit');
 });
-$(document).on('submit', 'form.ajaxForm', function (event) {
+$(document).on('submit', 'form.ajaxForm, form:not(.no-load)', function (event) {
     event.preventDefault();
     let $form = $(this);
     if ($form.find('.error-message:visible').length > 0) return;
     ajaxForm($form);
 });
-
-$('form:not(.no-load)').on('submit', () => $('#loader').addClass('show'));
 
 function ajaxForm($form) {
 	$('#loader').addClass('show');
