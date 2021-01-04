@@ -12094,7 +12094,7 @@ button.link {
 }
 @media (min-width: 992px) {
     .navbar-header .navbar-brand {
-        width: 100px;
+        width: unset;
         padding: 0 0 0 20px;
         margin-top: -3px;
     }
@@ -12227,7 +12227,7 @@ button.link {
 }
 @media (min-width: 1200px) {
     .navbar-header .navbar-right {
-        width: 250px;
+        width: unset;
     }
 }
 .navbar-header .navbar-right .search-link {
