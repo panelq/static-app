@@ -6,8 +6,7 @@ $(function () {
 	$("#mobile-logo").replaceWith($(".navbar-brand").html()); // Add mobile menu from main menu
     if (typeof validate !== 'undefined') validate.init();
 	if (typeof $().tooltip === 'function') $('body').tooltip({selector: '[title]'}); // Add tooltip listner
-	$('.navbar-brand .pq-logo').on('click', (e) => {
-		e.preventDefault(); e.stopPropagation();
+	$('.navbar-brand .pq-logo').on('click', function () {
 		window.location = '/';
 	});
 
