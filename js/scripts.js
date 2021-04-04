@@ -15,17 +15,19 @@ $(function () {
 
 	if (window.matchMedia("(max-width: 991px)").matches) {
 		$("#navbarMenu .active").addClass("show");
-	} else { $("#navbarMenu .active").removeClass("show"); }
+	} else { 
+		$("#navbarMenu .active").removeClass("show"); 
+	}
 	$(".navbar-menu .with-sub .nav-link").on("click", function (e) {
 		e.preventDefault();
 		$(this).parent().toggleClass("show");
 		$(this).parent().siblings().removeClass("show");
 	});
-	$("#mainMenuClose").on("click", function (e) {
+	$(document).on("click", "#mainMenuClose", function (e) {
 		e.preventDefault(); e.stopPropagation();
 		$("body").removeClass("navbar-nav-show");
 	});
-	$("#mainMenuOpen").on("click", function (e) {
+	$(document).on("click", "#mainMenuOpen", function (e) {
 		e.preventDefault(); e.stopPropagation();
 		$("body").addClass("navbar-nav-show");
 	});
