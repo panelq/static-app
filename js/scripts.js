@@ -1,59 +1,57 @@
 ////// PANELQ CUSTOM JS //////
-$(function () {
-	"use strict";
-	$("body").append('<div id="loader" class="loader"><div class="spinner-grow"></div></div><div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog centered"><div class="modal-content-main"></div></div></div><div class="scrolltop"><i data-feather="chevrons-up"></i></div>'); // Add basic modal and loader to document
-	feather.replace();
-	$("#mobile-logo").replaceWith($(".navbar-brand").html()); // Add mobile menu from main menu
-    if (typeof validate !== 'undefined') validate.init();
-	if (typeof $().tooltip === 'function') $('body').tooltip({selector: '[title]'}); // Add tooltip listner
-	$('.navbar-brand .pq-logo').on('click', function () {
-		window.location = '/';
-	});
 
-	////////// NAVBAR //////////
+$("body").append('<div id="loader" class="loader"><div class="spinner-grow"></div></div><div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog centered"><div class="modal-content-main"></div></div></div><div class="scrolltop"><i data-feather="chevrons-up"></i></div>'); // Add basic modal and loader to document
+feather.replace();
+$("#mobile-logo").replaceWith($(".navbar-brand").html()); // Add mobile menu from main menu
+if (typeof validate !== 'undefined') validate.init();
+if (typeof $().tooltip === 'function') $('body').tooltip({selector: '[title]'}); // Add tooltip listner
+$('.navbar-brand .pq-logo').on('click', function () {
+	window.location = '/';
+});
 
-	if (window.matchMedia("(max-width: 991px)").matches) {
-		$("#navbarMenu .active").addClass("show");
-	} else { $("#navbarMenu .active").removeClass("show"); }
-	$(".navbar-menu .with-sub .nav-link").on("click", function (e) {
-		e.preventDefault();
-		$(this).parent().toggleClass("show");
-		$(this).parent().siblings().removeClass("show");
-	});
-	$("#mainMenuClose").on("click", function (e) {
-		e.preventDefault(); e.stopPropagation();
+////////// NAVBAR //////////
+
+if (window.matchMedia("(max-width: 991px)").matches) {
+	$("#navbarMenu .active").addClass("show");
+} else { $("#navbarMenu .active").removeClass("show"); }
+$(".navbar-menu .with-sub .nav-link").on("click", function (e) {
+	e.preventDefault();
+	$(this).parent().toggleClass("show");
+	$(this).parent().siblings().removeClass("show");
+});
+$("#mainMenuClose").on("click", function (e) {
+	e.preventDefault(); e.stopPropagation();
+	$("body").removeClass("navbar-nav-show");
+});
+$("#mainMenuOpen").on("click", function (e) {
+	e.preventDefault(); e.stopPropagation();
+	$("body").addClass("navbar-nav-show");
+});
+
+$(document).on("click", function (e) {
+	if (!e.target.closest(".navbar-menu-wrapper")) {
 		$("body").removeClass("navbar-nav-show");
-	});
-	$("#mainMenuOpen").on("click", function (e) {
-		e.preventDefault(); e.stopPropagation();
-		$("body").addClass("navbar-nav-show");
-	});
-	
-	$(document).on("click", function (e) {
-		if (!e.target.closest(".navbar-menu-wrapper")) {
-			$("body").removeClass("navbar-nav-show");
-		}
-	});
-	
-	$(document).on("click", function (e) {
-		e.stopPropagation();
-		if (window.matchMedia("(min-width: 992px)").matches) {
-			if (!$(e.target).closest(".navbar-menu .nav-item").length) {
-				$("#navbarMenu .show").removeClass("show");
-			}
-		}
-	});
+	}
+});
 
-	var currentPath = location.pathname;
-	$(".nav-item a").each(function () {
-		var $this = $(this);
-		if (currentPath == '/' || currentPath == '/admin') { return false; }
-		if ($this.attr("href").indexOf(currentPath) != -1) {
-			if ($this.hasClass('nav-link')) {
-				$this.parent().addClass("active"); return false;
-			} else { $this.addClass("active").parent().parent().parent().addClass("active");}
+$(document).on("click", function (e) {
+	e.stopPropagation();
+	if (window.matchMedia("(min-width: 992px)").matches) {
+		if (!$(e.target).closest(".navbar-menu .nav-item").length) {
+			$("#navbarMenu .show").removeClass("show");
 		}
-    });
+	}
+});
+
+var currentPath = location.pathname;
+$(".nav-item a").each(function () {
+	var $this = $(this);
+	if (currentPath == '/' || currentPath == '/admin') { return false; }
+	if ($this.attr("href").indexOf(currentPath) != -1) {
+		if ($this.hasClass('nav-link')) {
+			$this.parent().addClass("active"); return false;
+		} else { $this.addClass("active").parent().parent().parent().addClass("active");}
+	}
 });
 
 ///// APP RELATED JS /////
