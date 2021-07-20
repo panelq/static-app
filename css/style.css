@@ -14474,7 +14474,7 @@ th:not(.hide).head.hide {
 }
 .inner-navbar {
     background: var(--navbar-background);
-    border-radius: 4px;
+    border-radius: 0 0 4px 4px;
     box-shadow: var(--box-shadow);
     /* margin-top: 1.5rem; */
     width: -webkit-fill-available !important;
