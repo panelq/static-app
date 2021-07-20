@@ -512,9 +512,9 @@ pre code {
     }
 }
 @media (min-width: 992px) {
-    .content-fixed {
+    /* .content-fixed {
         margin-top: 35px;
-    }
+    } */
     .container {
         max-width: 960px;
     }
@@ -12064,11 +12064,6 @@ button.link {
     width: 100%;
     background: 0 0;
 }
-@media (min-width: 992px) {
-    .navbar-header {
-        height: calc(55px + 1.4rem);
-    }
-}
 .navbar-header > .container {
     padding: 0;
 }
@@ -14481,7 +14476,7 @@ th:not(.hide).head.hide {
     background: var(--navbar-background);
     border-radius: 4px;
     box-shadow: var(--box-shadow);
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
     width: -webkit-fill-available !important;
     display: flex;
     margin-left: -5px;
