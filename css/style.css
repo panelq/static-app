@@ -14884,6 +14884,7 @@ span.remove-logo {
 }
 .settings .code-editor {
     height: 150px;
+	font-family: monospace !important;
 }
 .cursor-disabled {
     cursor: not-allowed !important;
